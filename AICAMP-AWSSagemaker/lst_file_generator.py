@@ -2,7 +2,8 @@
 import os
 import random
 
-folder = '<>/Cats_and_Dogs'
+#for windows
+folder = r'C:\Users\tegster\Downloads\Cats and Dogs Punahou\Cats and Dogs'
 subfolders = [f.path for f in os.scandir(folder) if f.is_dir()]
 
 # Create a train and test lst file
@@ -13,7 +14,7 @@ label_index = 0
 label_encoding = {}
 num_samples = len(subfolders)
 for name in subfolders:
-    label = name.split('/')[-1]
+    label = name.split('\\')[-1]
     label_encoding[label_index] = label
     onlyfiles = [f for f in os.listdir(name) if os.path.isfile(os.path.join(name, f))]
     for image_names in onlyfiles:
